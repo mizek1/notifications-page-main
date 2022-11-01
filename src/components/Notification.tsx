@@ -7,7 +7,6 @@ export interface NotificationProps {
   link?: string;
   picture?: string;
   privateMessage?: string;
-  onClick: () => void;
 }
 
 export function Notification(props: NotificationProps) {
