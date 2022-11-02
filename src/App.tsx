@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.less';
 import { Notification, NotificationProps } from './components/Notification';
 
@@ -64,10 +64,13 @@ const Notifications: NotificationProps[] = [
 function App() {
   const [notifications, setNotifications] = useState(Notifications);
 
-  function toggleRead() {
+  function toggleRead(user: string) {
     setNotifications(
       notifications.map((notification) => {
-        return { ...notification, unread: !notification.unread };
+        if (notification.user === user) {
+          return { ...notification, unread: !notification.unread };
+        }
+        return notification;
       })
     );
   }
@@ -101,6 +104,7 @@ function App() {
             return (
               <Notification
                 key={notification.user}
+                toggleRead={toggleRead}
                 {...notification}
               ></Notification>
             );

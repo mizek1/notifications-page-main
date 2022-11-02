@@ -9,10 +9,18 @@ export interface NotificationProps {
   privateMessage?: string;
 }
 
-export function Notification(props: NotificationProps) {
-  const { user, userPicture, message, time, unread } = props;
+export function Notification(
+  props: NotificationProps & { toggleRead: (user: string) => void }
+) {
+  const { user, userPicture, message, time, unread, toggleRead } = props;
+
   return (
-    <li className={unread ? 'unread' : ''}>
+    <li
+      className={unread ? 'unread' : ''}
+      onClick={() => {
+        toggleRead(user);
+      }}
+    >
       <img src={userPicture} alt={user + ' picture'}></img>
       <section>
         <article>
