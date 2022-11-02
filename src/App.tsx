@@ -91,9 +91,9 @@ function App() {
             }
           </span>
         </h1>
-        <aside>
+        <nav>
           <button onClick={markAllAsRead}>Mark all as read</button>
-        </aside>
+        </nav>
       </header>
       <main>
         <ul>

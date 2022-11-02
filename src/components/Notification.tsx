@@ -20,7 +20,7 @@ export function Notification(props: NotificationProps) {
             <a href="#">{user}</a> {message + ' '}
             {props.link && <a href="#">{props.link}</a>}
             {unread && <span className="unread"></span>}
-            <time>{time}</time>
+            <span className="time">{time}</span>
           </h2>
           {props.picture && <img src={props.picture} alt="picture"></img>}
         </article>
